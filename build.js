@@ -3,8 +3,8 @@
 const shell = require('shelljs');
 const chalk = require('chalk');
 
-const PACKAGE = `ngx-youtube-player`;
-const NPM_DIR = `dist`;
+const PACKAGE = `ngx-youtube-player-plus`;
+const NPM_DIR = `C:/Users/sarun/Documents/Github/ngx-youtube-player/dist`;
 const ESM2015_DIR = `${NPM_DIR}/esm2015`;
 const ESM5_DIR = `${NPM_DIR}/esm5`;
 const BUNDLES_DIR = `${NPM_DIR}/bundles`;
@@ -41,7 +41,7 @@ if (shell.exec(`rollup -c rollup.es.config.js -i ${NPM_DIR}/${PACKAGE}.js -o ${E
 }
 
 shell.echo(`Produce ESM5 version`);
-shell.exec(`ngc -p tsconfig-build.json --target es5 -d false --outDir ${OUT_DIR_ESM5} --importHelpers true --sourceMap`);
+shell.exec(`ngc -p tsconfig-build.json --target es5 -d false --outDir ${OUT_DIR_ESM5} --importHelpers true`);
 if (shell.exec(`rollup -c rollup.es.config.js -i ${OUT_DIR_ESM5}/${PACKAGE}.js -o ${ESM5_DIR}/${PACKAGE}.js`).code !== 0) {
   shell.echo(chalk.red(`Error: ESM5 version failed`));
   shell.exit(1);
@@ -55,7 +55,7 @@ if (shell.exec(`rollup -c rollup.config.js -i ${ESM5_DIR}/${PACKAGE}.js -o ${BUN
 
 shell.echo(`Minifying`);
 shell.cd(`${BUNDLES_DIR}`);
-shell.exec(`uglifyjs ${PACKAGE}.umd.js -c --comments -o ${PACKAGE}.umd.min.js --source-map "filename='${PACKAGE}.umd.min.js.map', includeSources"`);
+shell.exec(`uglifyjs ${PACKAGE}.umd.js -c --comments -o ${PACKAGE}.umd.min.js`);
 shell.cd(`..`);
 shell.cd(`..`);
 

@@ -1,5 +1,4 @@
 import resolve from 'rollup-plugin-node-resolve';
-import sourcemaps from 'rollup-plugin-sourcemaps';
 
 /**
  * Add here external dependencies that actually you use.
@@ -27,13 +26,12 @@ const globals = {
 
 export default {
     external: Object.keys(globals),
-    plugins: [resolve(), sourcemaps()],
+    plugins: [resolve()],
     onwarn: () => { return },
     output: {
         format: 'umd',
         name: 'ng.ngxYoutubePlayer',
         globals: globals,
-        sourcemap: true,
         exports: 'named'
     }
 }

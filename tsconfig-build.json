@@ -33,7 +33,7 @@
     "skipTemplateCodegen": true,
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
-    "flatModuleOutFile": "ngx-youtube-player.js",
-    "flatModuleId": "ngx-youtube-player"
+    "flatModuleOutFile": "ngx-youtube-player-plus.js",
+    "flatModuleId": "ngx-youtube-player-plus"
   }
 }

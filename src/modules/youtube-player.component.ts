@@ -49,7 +49,7 @@ export class YoutubePlayerComponent implements AfterContentInit {
     const htmlId = this.playerService.generateUniqueId();
     const playerSize = { height: this.height, width: this.width };
     const container = this.renderer.selectRootElement(
-      '#yt-player-ngx-component'
+      '#yt-player-ngx-component-plus'
     );
     this.renderer.setAttribute(container, 'id', htmlId);
     this.playerService.loadPlayerApi({
